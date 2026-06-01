@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esteban Selle — Senior Full Stack Engineer</title>
+  <meta name="description" content="Senior Full Stack Engineer with frontend focus. TypeScript, React, React Native, Node.js." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: #0d0d0d;
+    }
+
+    body {
+      background: #0d0d0d;
+      font-family: 'DM Sans', sans-serif;
+      color: #e8e4dc;
+      min-height: 100vh;
+      padding: 3rem 2rem 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .pf-header {
+      border-bottom: 0.5px solid #2a2a2a;
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .pf-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .pf-title {
+      font-size: 22px;
+      font-weight: 300;
+      color: #e8e4dc;
+      line-height: 1.3;
+    }
+
+    .pf-title em {
+      font-style: normal;
+      color: #c5b89a;
+    }
+
+    .pf-subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #555;
+      margin-top: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .pf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: #1e1e1e;
+      border: 0.5px solid #1e1e1e;
+    }
+
+    .pf-card {
+      background: #0d0d0d;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.15s;
+    }
+
+    .pf-card:hover {
+      background: #111;
+    }
+
+    .pf-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .pf-card-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #3a3a3a;
+      letter-spacing: 0.06em;
+      padding-top: 3px;
+    }
+
+    .pf-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      border: 0.5px solid #2a2a2a;
+      padding: 3px 8px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .pf-card-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #d6d0c6;
+      letter-spacing: -0.01em;
+    }
+
+    .pf-card-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .pf-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      text-decoration: none;
+      border-bottom: 0.5px solid #2a2a2a;
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+      width: fit-content;
+    }
+
+    .pf-card-link:hover {
+      color: #c5b89a;
+      border-color: #c5b89a;
+    }
+
+    .pf-card-link svg {
+      width: 11px;
+      height: 11px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .pf-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 0.5px solid #1e1e1e;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .pf-footer-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 0.06em;
+    }
+
+    .pf-stack {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pf-stack-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #3d3d3d;
+      letter-spacing: 0.05em;
+    }
+
+    .pf-stack-item + .pf-stack-item::before {
+      content: '·';
+      margin-right: 0.5rem;
+      color: #252525;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      .pf-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pf-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="pf-header">
+    <p class="pf-name">Esteban Selle</p>
+    <h1 class="pf-title">Senior Full Stack Engineer<br><em>Frontend focus</em></h1>
+    <p class="pf-subtitle">TypeScript · React · React Native · Node.js · 8+ years</p>
+  </header>
+
+  <main>
+    <div class="pf-grid">
+
+      <article class="pf-card">
+        <div class="pf-card-top">
+          <span class="pf-card-num">01</span>
+          <span class="pf-tag">Full stack</span>
+        </div>
+        <p class="pf-card-name">Dropeo</p>
+        <p class="pf-card-desc">Order and payment management platform for small-batch producers. Sellers announce time-limited drops; buyers commit before production starts. Built end-to-end with Next.js, Prisma, and MercadoPago integration.</p>
+        <a class="pf-card-link" href="https://dropeo.vercel.app/" target="_blank" rel="noopener noreferrer">
+          dropeo.vercel.app
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </article>
+
+      <article class="pf-card">
+        <div class="pf-card-top">
+          <span class="pf-card-num">02</span>
+          <span class="pf-tag">Dashboard</span>
+        </div>
+        <p class="pf-card-name">Cybersecurity Dashboard</p>
+        <p class="pf-card-desc">Threat intelligence interface surfacing real-time security events, attack vectors, and system health metrics. Designed for high-information-density contexts with an emphasis on scannable layout and clear visual hierarchy.</p>
+        <a class="pf-card-link" href="https://cybersecurity-dashboard-seven.vercel.app/" target="_blank" rel="noopener noreferrer">
+          cybersecurity-dashboard-seven.vercel.app
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </article>
+
+      <article class="pf-card">
+        <div class="pf-card-top">
+          <span class="pf-card-num">03</span>
+          <span class="pf-tag">Dev tool</span>
+        </div>
+        <p class="pf-card-name">Duckie</p>
+        <p class="pf-card-desc">Rubber duck debugging tool — articulate a problem out loud and get structured prompts that guide you toward the solution. Keeps engineers in problem-solving mode without reaching for a distraction.</p>
+        <a class="pf-card-link" href="https://duckie-tan.vercel.app/" target="_blank" rel="noopener noreferrer">
+          duckie-tan.vercel.app
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </article>
+
+      <article class="pf-card">
+        <div class="pf-card-top">
+          <span class="pf-card-num">04</span>
+          <span class="pf-tag">Take-home</span>
+        </div>
+        <p class="pf-card-name">HomeLooker</p>
+        <p class="pf-card-desc">House browser built as a take-home challenge. Infinite scroll via IntersectionObserver with 200px pre-fetch margin, full-jitter exponential backoff for a flaky API, and TanStack Query v5 for caching and loading states.</p>
+        <a class="pf-card-link" href="https://data-dashboard-lac.vercel.app/" target="_blank" rel="noopener noreferrer">
+          data-dashboard-lac.vercel.app
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="pf-footer">
+    <span class="pf-footer-label">Stack</span>
+    <div class="pf-stack">
+      <span class="pf-stack-item">TypeScript</span>
+      <span class="pf-stack-item">React</span>
+      <span class="pf-stack-item">Next.js</span>
+      <span class="pf-stack-item">Node.js</span>
+      <span class="pf-stack-item">React Native</span>
+      <span class="pf-stack-item">Tailwind CSS</span>
+      <span class="pf-stack-item">Prisma</span>
+    </div>
+  </footer>
+</body>
+</html>
